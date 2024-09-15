@@ -1,3 +1,5 @@
+import re
+
 regex_patterns = {
     'email': r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
     'url': r'https?://(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:/[\w-./?%&=]*)?',
@@ -9,7 +11,8 @@ regex_patterns = {
     'hashtag': r'#\w+',
     'currency': r'\$\d{1,3}(,\d{3})*(\.\d{2})?'
 }
-New test data sample for each features test_data = {
+#New test data sample for each feature
+test_data = {
     'email': ['jane_doe23@website.net', 'contact@business.co.jp', 'support@domain.org'],
     'url': ['https://shop.example.io/products', 'http://docs.sample-site.com/manual'],
     'phone_number': ['(555) 123-4567', '987-654-3210', '555.987.6543'],
@@ -20,3 +23,14 @@ New test data sample for each features test_data = {
     'hashtag': ['#CoolTech', '#PythonRocks', '#100DaysOfCode'],
     'currency': ['$5.00', '$999.99', '$12,345.67']
 }
+
+#Match patterns 
+def match_pattern(pattern, text):
+    return re.findall(pattern, text)
+
+#Test regex patterns
+for feature, pattern in regex_patterns.items():
+    print(f'\nTesting {feature}:')
+    for data in test_data[feature]:
+        matches = match_pattern(pattern, data)
+        print(f'Input: {data}, Matches: {matches}')
