@@ -2,7 +2,7 @@ import re
 
 regex_patterns = {
     'email': r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
-    'url': r'https?://(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:/[\w-./?%&=]*)?',
+    'url':r'https?://(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:/[\w\-./?%&=]*)?'
     'phone_number': r'\(?\d{3}\)?[.\s-]?\d{3}[.\s-]?\d{4}',
     'credit_card': r'\d{4}[ -]?\d{4}[ -]?\d{4}[ -]?\d{4}',
     'time_24h': r'([01]\d|2[0-3]):[0-5]\d',
